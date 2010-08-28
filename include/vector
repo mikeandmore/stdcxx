@@ -153,8 +153,9 @@ public:
     
     ~vector () { 
         _C_destroy (begin ());
-        _C_alloc.deallocate (_C_alloc._C_begin,
-                             _C_alloc._C_bufend - _C_alloc._C_begin);
+        if(_C_alloc._C_begin != 0)
+            _C_alloc.deallocate (_C_alloc._C_begin,
+                                 _C_alloc._C_bufend - _C_alloc._C_begin);
     }
     
     vector& operator= (const vector&);
