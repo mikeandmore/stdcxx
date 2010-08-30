@@ -33,7 +33,11 @@
 #define _RWSTD_RW_CONFIG_H_INCLUDED
 
 // include generated configuration header
+#ifdef __STDCXX_CONFIG
+#include __STDCXX_CONFIG
+#else
 #include <config.h>
+#endif
 
 /*** library version numbers and ids **************************************/
 
