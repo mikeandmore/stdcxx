@@ -120,7 +120,7 @@ struct _Slist_iterator_base
 {
   typedef size_t               size_type;
   typedef ptrdiff_t            difference_type;
-  typedef forward_iterator_tag iterator_category;
+  typedef ::std::forward_iterator_tag iterator_category;
 
   _Slist_node_base* _M_node;
 
@@ -175,8 +175,8 @@ inline ptrdiff_t* distance_type(const _Slist_iterator_base&) {
   return 0;
 }
 
-inline forward_iterator_tag iterator_category(const _Slist_iterator_base&) {
-  return forward_iterator_tag();
+inline ::std::forward_iterator_tag iterator_category(const _Slist_iterator_base&) {
+  return ::std::forward_iterator_tag();
 }
 
 template <class _Tp, class _Ref, class _Ptr> 

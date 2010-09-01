@@ -31,6 +31,7 @@
 #ifndef __SGI_STL_INTERNAL_HASH_SET_H
 #define __SGI_STL_INTERNAL_HASH_SET_H
 
+#include <functional>
 #include "concept_checks.h"
 
 __SGI_STL_BEGIN_NAMESPACE
@@ -42,7 +43,7 @@ __SGI_STL_BEGIN_NAMESPACE
 
 // identity is an extensions: it is not part of the standard.
 template <class _Tp>
-struct _Identity : public unary_function<_Tp,_Tp> {
+struct _Identity : public ::std::unary_function<_Tp,_Tp> {
       const _Tp& operator()(const _Tp& __x) const { return __x; }
 };
 
@@ -51,7 +52,7 @@ struct _Identity : public unary_function<_Tp,_Tp> {
 
 template <class _Value,
           class _HashFcn  __STL_DEPENDENT_DEFAULT_TMPL(hash<_Value>),
-          class _EqualKey __STL_DEPENDENT_DEFAULT_TMPL(equal_to<_Value>),
+          class _EqualKey __STL_DEPENDENT_DEFAULT_TMPL(::std::equal_to<_Value>),
           class _Alloc =  __STL_DEFAULT_ALLOCATOR(_Value) >
 class hash_set;
 
@@ -181,10 +182,10 @@ public:
   iterator end() const { return _M_ht.end(); }
 
 public:
-  pair<iterator, bool> insert(const value_type& __obj)
+  ::std::pair<iterator, bool> insert(const value_type& __obj)
     {
-      pair<typename _Ht::iterator, bool> __p = _M_ht.insert_unique(__obj);
-      return pair<iterator,bool>(__p.first, __p.second);
+      ::std::pair<typename _Ht::iterator, bool> __p = _M_ht.insert_unique(__obj);
+      return ::std::pair<iterator,bool>(__p.first, __p.second);
     }
 #ifdef __STL_MEMBER_TEMPLATES
   template <class _InputIterator>
@@ -197,18 +198,18 @@ public:
   void insert(const_iterator __f, const_iterator __l) 
     {_M_ht.insert_unique(__f, __l); }
 #endif /*__STL_MEMBER_TEMPLATES */
-  pair<iterator, bool> insert_noresize(const value_type& __obj)
+  ::std::pair<iterator, bool> insert_noresize(const value_type& __obj)
   {
-    pair<typename _Ht::iterator, bool> __p = 
+    ::std::pair<typename _Ht::iterator, bool> __p = 
       _M_ht.insert_unique_noresize(__obj);
-    return pair<iterator, bool>(__p.first, __p.second);
+    return ::std::pair<iterator, bool>(__p.first, __p.second);
   }
 
   iterator find(const key_type& __key) const { return _M_ht.find(__key); }
 
   size_type count(const key_type& __key) const { return _M_ht.count(__key); }
   
-  pair<iterator, iterator> equal_range(const key_type& __key) const
+  ::std::pair<iterator, iterator> equal_range(const key_type& __key) const
     { return _M_ht.equal_range(__key); }
 
   size_type erase(const key_type& __key) {return _M_ht.erase(__key); }
@@ -254,7 +255,7 @@ swap(hash_set<_Val,_HashFcn,_EqualKey,_Alloc>& __hs1,
 
 template <class _Value,
           class _HashFcn  __STL_DEPENDENT_DEFAULT_TMPL(hash<_Value>),
-          class _EqualKey __STL_DEPENDENT_DEFAULT_TMPL(equal_to<_Value>),
+          class _EqualKey __STL_DEPENDENT_DEFAULT_TMPL(::std::equal_to<_Value>),
           class _Alloc =  __STL_DEFAULT_ALLOCATOR(_Value) >
 class hash_multiset;
 
@@ -405,7 +406,7 @@ public:
 
   size_type count(const key_type& __key) const { return _M_ht.count(__key); }
   
-  pair<iterator, iterator> equal_range(const key_type& __key) const
+  ::std::pair<iterator, iterator> equal_range(const key_type& __key) const
     { return _M_ht.equal_range(__key); }
 
   size_type erase(const key_type& __key) {return _M_ht.erase(__key); }

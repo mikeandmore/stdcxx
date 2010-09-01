@@ -53,7 +53,7 @@ struct _Select1st : public std::unary_function<Pair, typename Pair::first_type> 
 
 template <class _Key, class _Tp,
           class _HashFcn  __STL_DEPENDENT_DEFAULT_TMPL(hash<_Key>),
-          class _EqualKey __STL_DEPENDENT_DEFAULT_TMPL(equal_to<_Key>),
+          class _EqualKey __STL_DEPENDENT_DEFAULT_TMPL(::std::equal_to<_Key>),
           class _Alloc =  __STL_DEFAULT_ALLOCATOR(_Tp) >
 class hash_map;
 
@@ -73,13 +73,13 @@ class hash_map
   __STL_CLASS_BINARY_FUNCTION_CHECK(_EqualKey, bool, _Key, _Key);
 
 private:
-  typedef pair<const _Key, _Tp> pair_type;
+  typedef ::std::pair<const _Key, _Tp> pair_type;
   typedef typename _Alloc::template rebind<pair_type> alloc_rebind;
   typedef typename alloc_rebind::other ht_alloc;
   typedef hashtable<pair_type,
                     _Key,
                     _HashFcn,
-                    _Select1st<pair<const _Key,_Tp> >,
+                    _Select1st< ::std::pair<const _Key,_Tp> >,
                     _EqualKey,
                     ht_alloc> _Ht;
   _Ht _M_ht;
@@ -195,7 +195,7 @@ public:
   const_iterator end() const { return _M_ht.end(); }
 
 public:
-  pair<iterator,bool> insert(const value_type& __obj)
+  ::std::pair<iterator,bool> insert(const value_type& __obj)
     { return _M_ht.insert_unique(__obj); }
 #ifdef __STL_MEMBER_TEMPLATES
   template <class _InputIterator>
@@ -208,7 +208,7 @@ public:
   void insert(const_iterator __f, const_iterator __l)
     { _M_ht.insert_unique(__f, __l); }
 #endif /*__STL_MEMBER_TEMPLATES */
-  pair<iterator,bool> insert_noresize(const value_type& __obj)
+  ::std::pair<iterator,bool> insert_noresize(const value_type& __obj)
     { return _M_ht.insert_unique_noresize(__obj); }    
 
   iterator find(const key_type& __key) { return _M_ht.find(__key); }
@@ -221,9 +221,9 @@ public:
 
   size_type count(const key_type& __key) const { return _M_ht.count(__key); }
   
-  pair<iterator, iterator> equal_range(const key_type& __key)
+  ::std::pair<iterator, iterator> equal_range(const key_type& __key)
     { return _M_ht.equal_range(__key); }
-  pair<const_iterator, const_iterator>
+  ::std::pair<const_iterator, const_iterator>
   equal_range(const key_type& __key) const
     { return _M_ht.equal_range(__key); }
 
@@ -270,7 +270,7 @@ swap(hash_map<_Key,_Tp,_HashFcn,_EqlKey,_Alloc>& __hm1,
 
 template <class _Key, class _Tp,
           class _HashFcn  __STL_DEPENDENT_DEFAULT_TMPL(hash<_Key>),
-          class _EqualKey __STL_DEPENDENT_DEFAULT_TMPL(equal_to<_Key>),
+          class _EqualKey __STL_DEPENDENT_DEFAULT_TMPL(::std::equal_to<_Key>),
           class _Alloc =  __STL_DEFAULT_ALLOCATOR(_Tp) >
 class hash_multimap;
 
@@ -291,8 +291,8 @@ class hash_multimap
   __STL_CLASS_BINARY_FUNCTION_CHECK(_EqualKey, bool, _Key, _Key);
 
 private:
-  typedef hashtable<pair<const _Key, _Tp>, _Key, _HashFcn,
-                    _Select1st<pair<const _Key, _Tp> >, _EqualKey, _Alloc> 
+  typedef hashtable< ::std::pair<const _Key, _Tp>, _Key, _HashFcn,
+                    _Select1st< ::std::pair<const _Key, _Tp> >, _EqualKey, _Alloc> 
           _Ht;
   _Ht _M_ht;
 
@@ -428,9 +428,9 @@ public:
 
   size_type count(const key_type& __key) const { return _M_ht.count(__key); }
   
-  pair<iterator, iterator> equal_range(const key_type& __key)
+  ::std::pair<iterator, iterator> equal_range(const key_type& __key)
     { return _M_ht.equal_range(__key); }
-  pair<const_iterator, const_iterator>
+  ::std::pair<const_iterator, const_iterator>
   equal_range(const key_type& __key) const
     { return _M_ht.equal_range(__key); }
 
