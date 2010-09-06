@@ -325,7 +325,7 @@
 #define _RWSTD_NO_ABS_ULONG
 #define _RWSTD_NO_ABS_LLONG
 #define _RWSTD_NO_ABS_ULLONG
-// #define _RWSTD_NO_ATOMIC_OPS
+#define _RWSTD_NO_ATOMIC_OPS
 // #define _RWSTD_NO_HONOR_STD
 // #define _RWSTD_NO_STD_TERMINATE
 // #define _RWSTD_NO_SETRLIMIT
@@ -856,3 +856,6 @@
 #define _RWSTD_WCTRANS_T int*
 // #define _RWSTD_NO_WCTYPE_T
 #define _RWSTD_WCTYPE_T unsigned long
+
+#define _RWSTD_NO_STATIC_MUTEX_INIT
+
