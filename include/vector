@@ -153,7 +153,7 @@ public:
     
     ~vector () { 
         _C_destroy (begin ());
-        if(_C_alloc._C_begin != 0)
+        if(_C_alloc._C_begin != pointer())
             _C_alloc.deallocate (_C_alloc._C_begin,
                                  _C_alloc._C_bufend - _C_alloc._C_begin);
     }
