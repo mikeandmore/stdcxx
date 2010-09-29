@@ -159,7 +159,7 @@ void operator delete (void* p) _THROWS (())
         rw_assert (cond, 0, __LINE__, tag);          \
     }                                                \
     _CATCH (std::bad_alloc) {                        \
-        RW_ASSERT (!cond, 0, __LINE__, tag);         \
+        rw_assert (!cond, 0, __LINE__, tag);         \
     }                                                \
     _CATCH (...) {                                   \
         rw_assert (!cond, 0, __LINE__, tag);         \
