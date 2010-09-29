@@ -367,10 +367,18 @@ template <class _TypeT>
 inline valarray<_TypeT>&
 valarray<_TypeT>::operator*= (const valarray<_TypeT>& __rhs)
 {
-    transform (_C_array.begin (), 
-               _C_array.begin () + (_STD::min)(size (), __rhs.size ()), 
-               __rhs._C_array.begin (), _C_array.begin (), 
-               multiplies<_TypeT>());
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    _TypeT *p = _C_array.begin();
+    _TypeT *p_end = _C_array.begin () + (_STD::min)(size (), __rhs.size ());
+    const _TypeT *rhp = __rhs._C_array.begin();
+
+    while (p != p_end) {
+        (*p) *= (*rhp);
+        ++p;
+        ++rhp;
+    }
 
     return *this;
 }
@@ -380,10 +388,18 @@ template <class _TypeT>
 inline valarray<_TypeT>&
 valarray<_TypeT>::operator/= (const valarray<_TypeT>& __rhs)
 {
-    transform (_C_array.begin (), 
-               _C_array.begin () + (_STD::min)(size (), __rhs.size ()), 
-               __rhs._C_array.begin (), _C_array.begin (), 
-               divides<_TypeT>());
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    _TypeT *p = _C_array.begin();
+    _TypeT *p_end = _C_array.begin () + (_STD::min)(size (), __rhs.size ());
+    const _TypeT *rhp = __rhs._C_array.begin();
+
+    while (p != p_end) {
+        (*p) /= (*rhp);
+        ++p;
+        ++rhp;
+    }
 
     return *this;
 }
@@ -393,10 +409,18 @@ template <class _TypeT>
 inline valarray<_TypeT>&
 valarray<_TypeT>::operator+= (const valarray<_TypeT>& __rhs)
 {
-    transform (_C_array.begin (), 
-               _C_array.begin () + (_STD::min)(size (), __rhs.size ()), 
-               __rhs._C_array.begin (), _C_array.begin (), 
-               plus<_TypeT>());
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    _TypeT *p = _C_array.begin();
+    _TypeT *p_end = _C_array.begin () + (_STD::min)(size (), __rhs.size ());
+    const _TypeT *rhp = __rhs._C_array.begin();
+
+    while (p != p_end) {
+        (*p) += (*rhp);
+        ++p;
+        ++rhp;
+    }
 
     return *this;
 }
@@ -406,10 +430,18 @@ template <class _TypeT>
 inline valarray<_TypeT>&
 valarray<_TypeT>::operator-= (const valarray<_TypeT>& __rhs)
 {
-    transform (_C_array.begin (), 
-               _C_array.begin () + (_STD::min)(size (), __rhs.size ()), 
-               __rhs._C_array.begin (), _C_array.begin (), 
-               minus<_TypeT>());
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    _TypeT *p = _C_array.begin();
+    _TypeT *p_end = _C_array.begin () + (_STD::min)(size (), __rhs.size ());
+    const _TypeT *rhp = __rhs._C_array.begin();
+
+    while (p != p_end) {
+        (*p) -= (*rhp);
+        ++p;
+        ++rhp;
+    }
 
     return *this;
 }
@@ -419,10 +451,18 @@ template <class _TypeT>
 inline valarray<_TypeT>&
 valarray<_TypeT>::operator%= (const valarray<_TypeT>& __rhs)
 {
-    transform (_C_array.begin (), 
-               _C_array.begin () + (_STD::min)(size (), __rhs.size ()), 
-               __rhs._C_array.begin (), _C_array.begin (), 
-               modulus<_TypeT>());
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    _TypeT *p = _C_array.begin();
+    _TypeT *p_end = _C_array.begin () + (_STD::min)(size (), __rhs.size ());
+    const _TypeT *rhp = __rhs._C_array.begin();
+
+    while (p != p_end) {
+        (*p) %= (*rhp);
+        ++p;
+        ++rhp;
+    }
 
     return *this;
 }
@@ -432,10 +472,18 @@ template <class _TypeT>
 inline valarray<_TypeT>&
 valarray<_TypeT>::operator^= (const valarray<_TypeT>& __rhs)
 {
-    transform (_C_array.begin (), 
-               _C_array.begin () + (_STD::min)(size (), __rhs.size ()), 
-               __rhs._C_array.begin (), _C_array.begin (), 
-               _RW::exclusive_or<_TypeT>());
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    _TypeT *p = _C_array.begin();
+    _TypeT *p_end = _C_array.begin () + (_STD::min)(size (), __rhs.size ());
+    const _TypeT *rhp = __rhs._C_array.begin();
+
+    while (p != p_end) {
+        (*p) ^= (*rhp);
+        ++p;
+        ++rhp;
+    }
 
     return *this;
 }
@@ -445,10 +493,18 @@ template <class _TypeT>
 inline valarray<_TypeT>&
 valarray<_TypeT>::operator&= (const valarray<_TypeT>& __rhs)
 {
-    transform (_C_array.begin (), 
-               _C_array.begin () + (_STD::min)(size (), __rhs.size ()), 
-               __rhs._C_array.begin (), _C_array.begin (), 
-               _RW::bitwise_and<_TypeT>());
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    _TypeT *p = _C_array.begin();
+    _TypeT *p_end = _C_array.begin () + (_STD::min)(size (), __rhs.size ());
+    const _TypeT *rhp = __rhs._C_array.begin();
+
+    while (p != p_end) {
+        (*p) &= (*rhp);
+        ++p;
+        ++rhp;
+    }
 
     return *this;
 }
@@ -458,10 +514,18 @@ template <class _TypeT>
 inline valarray<_TypeT>&
 valarray<_TypeT>::operator|= (const valarray<_TypeT>& __rhs)
 {
-    transform (_C_array.begin (), 
-               _C_array.begin () + (_STD::min)(size (), __rhs.size ()), 
-               __rhs._C_array.begin (), _C_array.begin (), 
-               _RW::bitwise_or<_TypeT>());
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    _TypeT *p = _C_array.begin();
+    _TypeT *p_end = _C_array.begin () + (_STD::min)(size (), __rhs.size ());
+    const _TypeT *rhp = __rhs._C_array.begin();
+
+    while (p != p_end) {
+        (*p) |= (*rhp);
+        ++p;
+        ++rhp;
+    }
 
     return *this;
 }
@@ -471,10 +535,18 @@ template <class _TypeT>
 inline valarray<_TypeT>&
 valarray<_TypeT>::operator<<= (const valarray<_TypeT>& __rhs)
 {
-    transform (_C_array.begin (), 
-               _C_array.begin () + (_STD::min)(size (), __rhs.size ()), 
-               __rhs._C_array.begin (), _C_array.begin (), 
-               _RW::shift_left<_TypeT>());
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    _TypeT *p = _C_array.begin();
+    _TypeT *p_end = _C_array.begin () + (_STD::min)(size (), __rhs.size ());
+    const _TypeT *rhp = __rhs._C_array.begin();
+
+    while (p != p_end) {
+        (*p) <<= (*rhp);
+        ++p;
+        ++rhp;
+    }
 
     return *this;
 }
@@ -484,10 +556,18 @@ template <class _TypeT>
 inline valarray<_TypeT>&
 valarray<_TypeT>::operator>>= (const valarray<_TypeT>& __rhs)
 {
-    transform (_C_array.begin (), 
-               _C_array.begin () + (_STD::min)(size (), __rhs.size ()), 
-               __rhs._C_array.begin (), _C_array.begin (), 
-               _RW::shift_right<_TypeT>());
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    _TypeT *p = _C_array.begin();
+    _TypeT *p_end = _C_array.begin () + (_STD::min)(size (), __rhs.size ());
+    const _TypeT *rhp = __rhs._C_array.begin();
+
+    while (p != p_end) {
+        (*p) >>= (*rhp);
+        ++p;
+        ++rhp;
+    }
 
     return *this;
 }
@@ -497,8 +577,14 @@ template <class _TypeT>
 inline valarray<_TypeT>&
 valarray<_TypeT>::operator*= (const _TypeT& __rhs)
 {
-    transform (_C_array.begin (), _C_array.end (), _C_array.begin (), 
-               bind2nd (multiplies<_TypeT>(), __rhs));
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    for (_TypeT *p = _C_array.begin(), *p_end = _C_array.end();
+         p != p_end; ++p)
+    {
+        (*p) *= __rhs;
+    }
 
     return *this;
 }
@@ -507,8 +593,14 @@ valarray<_TypeT>::operator*= (const _TypeT& __rhs)
 template <class _TypeT>
 inline valarray<_TypeT>& valarray<_TypeT>::operator/= (const _TypeT& __rhs)
 {
-    transform (_C_array.begin (), _C_array.end (), _C_array.begin (), 
-               bind2nd (divides<_TypeT>(), __rhs));
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    for (_TypeT *p = _C_array.begin(), *p_end = _C_array.end();
+         p != p_end; ++p)
+    {
+        (*p) /= __rhs;
+    }
 
     return *this;
 }
@@ -517,8 +609,14 @@ inline valarray<_TypeT>& valarray<_TypeT>::operator/= (const _TypeT& __rhs)
 template <class _TypeT>
 inline valarray<_TypeT>& valarray<_TypeT>::operator+= (const _TypeT& __rhs)
 {
-    transform (_C_array.begin (), _C_array.end (), _C_array.begin (), 
-               bind2nd (plus<_TypeT>(), __rhs));
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    for (_TypeT *p = _C_array.begin(), *p_end = _C_array.end();
+         p != p_end; ++p)
+    {
+        (*p) += __rhs;
+    }
 
     return *this;
 }
@@ -527,8 +625,14 @@ inline valarray<_TypeT>& valarray<_TypeT>::operator+= (const _TypeT& __rhs)
 template <class _TypeT>
 inline valarray<_TypeT>& valarray<_TypeT>::operator-= (const _TypeT& __rhs)
 {
-    transform (_C_array.begin (), _C_array.end (), _C_array.begin (), 
-               bind2nd (minus<_TypeT>(), __rhs));
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    for (_TypeT *p = _C_array.begin(), *p_end = _C_array.end();
+         p != p_end; ++p)
+    {
+        (*p) -= __rhs;
+    }
 
     return *this;
 }
@@ -537,8 +641,14 @@ inline valarray<_TypeT>& valarray<_TypeT>::operator-= (const _TypeT& __rhs)
 template <class _TypeT>
 inline valarray<_TypeT>& valarray<_TypeT>::operator%= (const _TypeT& __rhs)
 {
-    transform (_C_array.begin (), _C_array.end (), _C_array.begin (), 
-               bind2nd (modulus<_TypeT>(), __rhs));
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    for (_TypeT *p = _C_array.begin(), *p_end = _C_array.end();
+         p != p_end; ++p)
+    {
+        (*p) %= __rhs;
+    }
 
     return *this;
 }
@@ -547,8 +657,14 @@ inline valarray<_TypeT>& valarray<_TypeT>::operator%= (const _TypeT& __rhs)
 template <class _TypeT>
 inline valarray<_TypeT>& valarray<_TypeT>::operator^= (const _TypeT& __rhs)
 {
-    transform (_C_array.begin (), _C_array.end (), _C_array.begin (), 
-               bind2nd (_RW::exclusive_or<_TypeT>(), __rhs));
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    for (_TypeT *p = _C_array.begin(), *p_end = _C_array.end();
+         p != p_end; ++p)
+    {
+        (*p) ^= __rhs;
+    }
 
     return *this;
 }
@@ -557,8 +673,14 @@ inline valarray<_TypeT>& valarray<_TypeT>::operator^= (const _TypeT& __rhs)
 template <class _TypeT>
 inline valarray<_TypeT>& valarray<_TypeT>::operator&= (const _TypeT& __rhs)
 {
-    transform (_C_array.begin (), _C_array.end (), _C_array.begin (), 
-               bind2nd (_RW::bitwise_and<_TypeT>(), __rhs));
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    for (_TypeT *p = _C_array.begin(), *p_end = _C_array.end();
+         p != p_end; ++p)
+    {
+        (*p) &= __rhs;
+    }
 
     return *this;
 }
@@ -567,8 +689,14 @@ inline valarray<_TypeT>& valarray<_TypeT>::operator&= (const _TypeT& __rhs)
 template <class _TypeT>
 inline valarray<_TypeT>& valarray<_TypeT>::operator|= (const _TypeT& __rhs)
 {
-    transform (_C_array.begin (), _C_array.end (), _C_array.begin (), 
-               bind2nd (_RW::bitwise_or<_TypeT>(), __rhs));
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    for (_TypeT *p = _C_array.begin(), *p_end = _C_array.end();
+         p != p_end; ++p)
+    {
+        (*p) |= __rhs;
+    }
 
     return *this;
 }
@@ -577,8 +705,14 @@ inline valarray<_TypeT>& valarray<_TypeT>::operator|= (const _TypeT& __rhs)
 template <class _TypeT>
 inline valarray<_TypeT>& valarray<_TypeT>::operator<<= (const _TypeT& __rhs)
 {
-    transform (_C_array.begin (), _C_array.end (), _C_array.begin (), 
-               bind2nd (_RW::shift_left<_TypeT>(), __rhs));
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    for (_TypeT *p = _C_array.begin(), *p_end = _C_array.end();
+         p != p_end; ++p)
+    {
+        (*p) <<= __rhs;
+    }
 
     return *this;
 }
@@ -587,8 +721,14 @@ inline valarray<_TypeT>& valarray<_TypeT>::operator<<= (const _TypeT& __rhs)
 template <class _TypeT>
 inline valarray<_TypeT>& valarray<_TypeT>::operator>>= (const _TypeT& __rhs)
 {
-    transform (_C_array.begin (), _C_array.end (), _C_array.begin (), 
-               bind2nd (_RW::shift_right<_TypeT>(), __rhs));
+    // Binary operation can not be used because _TypeT
+    // may not support it
+
+    for (_TypeT *p = _C_array.begin(), *p_end = _C_array.end();
+         p != p_end; ++p)
+    {
+        (*p) >>= __rhs;
+    }
 
     return *this;
 }
