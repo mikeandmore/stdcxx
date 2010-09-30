@@ -1242,6 +1242,18 @@ rw_vtest (int argc, char **argv,
         }
     }
 
+    bool failed = false;
+
+    if(ndiags[diag_xassert][0] != ndiags[diag_xassert][1]) {
+        failed = true;
+    }
+    if(ndiags[diag_assert][1] != 0) {
+        failed = true;
+    }
+    if(ndiags[diag_error][1] != 0) {
+        failed = true;
+    }
+
     if (0 == nlines)
         rw_fprintf (_rw_ftestout, "# no diagnostics\n");
 
@@ -1267,6 +1279,10 @@ rw_vtest (int argc, char **argv,
     if (_rw_ftestout && _rw_ftestout != rw_stdout) {
         fclose ((FILE*)(void*)_rw_ftestout);
         _rw_ftestout = 0;
+    }
+
+    if(status == 0 && failed) {
+        status = 1;
     }
 
     return status;
