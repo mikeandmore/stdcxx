@@ -1,4 +1,5 @@
 // configured for pathCC- on Linux 2.6.31-302-ec2
+#define _PSC_FULL_VERSION "${PSC_FULL_VERSION}"
 #define _RWSTD_NO_CASSERT
 #define _RWSTD_ANSI_C_ASSERT_H "/usr/include/assert.h"
 #define _RWSTD_NO_CCOMPLEX
@@ -10,13 +11,13 @@
 #define _RWSTD_NO_CFENV
 #define _RWSTD_ANSI_C_FENV_H "/usr/include/fenv.h"
 #define _RWSTD_NO_CFLOAT
-#define _RWSTD_ANSI_C_FLOAT_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/3.9.99/include/float.h"
+#define _RWSTD_ANSI_C_FLOAT_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/" _PSC_FULL_VERSION "/include/float.h"
 #define _RWSTD_NO_CINTTYPES
 #define _RWSTD_ANSI_C_INTTYPES_H "/usr/include/inttypes.h"
 #define _RWSTD_NO_CISO646
-#define _RWSTD_ANSI_C_ISO646_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/3.9.99/include/iso646.h"
+#define _RWSTD_ANSI_C_ISO646_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/" _PSC_FULL_VERSION "/include/iso646.h"
 #define _RWSTD_NO_CLIMITS
-#define _RWSTD_ANSI_C_LIMITS_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/3.9.99/include/limits.h"
+#define _RWSTD_ANSI_C_LIMITS_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/" _PSC_FULL_VERSION "/include/limits.h"
 #define _RWSTD_NO_CLOCALE
 #define _RWSTD_ANSI_C_LOCALE_H "/usr/include/locale.h"
 #define _RWSTD_NO_CMATH
@@ -26,11 +27,11 @@
 #define _RWSTD_NO_CSIGNAL
 #define _RWSTD_ANSI_C_SIGNAL_H "/usr/include/signal.h"
 #define _RWSTD_NO_CSTDARG
-#define _RWSTD_ANSI_C_STDARG_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/3.9.99/include/stdarg.h"
+#define _RWSTD_ANSI_C_STDARG_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/" _PSC_FULL_VERSION "/include/stdarg.h"
 #define _RWSTD_NO_CSTDBOOL
-#define _RWSTD_ANSI_C_STDBOOL_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/3.9.99/include/stdbool.h"
+#define _RWSTD_ANSI_C_STDBOOL_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/" _PSC_FULL_VERSION "/include/stdbool.h"
 #define _RWSTD_NO_CSTDDEF
-#define _RWSTD_ANSI_C_STDDEF_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/3.9.99/include/stddef.h"
+#define _RWSTD_ANSI_C_STDDEF_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/" _PSC_FULL_VERSION "/include/stddef.h"
 #define _RWSTD_NO_CSTDIO
 #define _RWSTD_ANSI_C_STDIO_H "/usr/include/stdio.h"
 #define _RWSTD_NO_CSTDINT
