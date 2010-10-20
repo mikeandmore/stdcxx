@@ -32,6 +32,7 @@
 
 #include <istream>
 #include <ostream>
+#include <cctype>
 
 #include <rw/_defs.h>
 
