@@ -458,13 +458,14 @@
 #endif   // _RWSTD_MINIMUM_STRINGBUF_CAPACITY
 
 // working around an HP aCC bug (PR #25354 and 22610)
-#if !defined (__HP_aCC)
-#  define _RWSTD_NEW_CAPACITY(ignore, what, from)   \
-      _RW::__rw_new_capacity (from, what)
-#else
-#  define _RWSTD_NEW_CAPACITY(T, what, from)   \
-      _RW::__rw_new_capacity<T>(from, what)
-#endif   // HP aCC
+#define _RWSTD_NEW_CAPACITY(ignore, what, from) from
+//#if !defined (__HP_aCC)
+//#  define _RWSTD_NEW_CAPACITY(ignore, what, from)   \
+//      _RW::__rw_new_capacity (from, what)
+//#else
+//#  define _RWSTD_NEW_CAPACITY(T, what, from)   \
+//      _RW::__rw_new_capacity<T>(from, what)
+//#endif   // HP aCC
 
 // set up MSVC DLL export/import directives
 // _DLL - defined by the compiler when either -MD or -MDd is used
