@@ -80,6 +80,20 @@ _RWSTD_NAMESPACE (std) {
 #undef sqrt
 #undef tan
 
+// C99 functions
+#undef fpclassify
+#undef isfinite
+#undef isinf
+#undef isnan
+#undef isnormal
+#undef signbit
+#undef isgreater
+#undef isgreaterequal
+#undef isless
+#undef islessequal
+#undef islessgreater
+#undef isunordered
+
 
 #ifndef _RWSTD_NO_ACOSF
 #  define _ACOSF(x)    ::acosf (x)
@@ -547,6 +561,7 @@ extern "C" long double tanhl (long double);
 #endif   // _RWSTD_NO_TANHL
 
 
+
 #if !defined (_RWSTD_NO_USING_LIBC_IN_STD)
 _RWSTD_NAMESPACE (std) { 
 #endif  // !_RWSTD_NO_USING_LIBC_IN_STD
@@ -1002,6 +1017,62 @@ inline long double tanh (long double __x)
 
 #endif   // _RWSTD_NO_LONG_DOUBLE
 
+
+inline int fpclassify(double __x) {
+    return __fpclassify(__x);
+}
+
+inline int fpclassify(float __x) {
+    return __fpclassifyf(__x);
+}
+
+template <typename __T> int isfinite(__T __x) {
+    return __builtin_isfinite(__x);
+}
+
+template <typename __T> int isinf(__T __x) {
+    return __builtin_isinf(__x);
+}
+
+template <typename __T> int isnan(__T __x) {
+    return __builtin_isnan(__x);
+}
+
+template <typename __T> int isnormal(__T __x) {
+    return fpclassify(__x) == FP_NORMAL;
+}
+
+int signbit(float __x) {
+    return __signbitf(__x);
+}
+
+int signbit(double __x) {
+    return __signbit(__x);
+}
+
+template <typename __T> int isgreater(__T __x, __T __y) {
+    return __builtin_isgreater(__x, __y);
+}
+
+template <typename __T> int isgreaterequal(__T __x, __T __y) {
+    return __builtin_isgreaterequal(__x, __y);
+}
+
+template <typename __T> int isless(__T __x, __T __y) {
+    return __builtin_isless(__x, __y);
+}
+
+template <typename __T> int islessequal(__T __x, __T __y) {
+    return __builtin_islessequal(__x, __y);
+}
+
+template <typename __T> int islessgreater(__T __x, __T __y) {
+    return __builtin_islessgreater(__x, __y);
+}
+
+template <typename __T> int isunordered(__T __x, __T __y) {
+    return __builtin_isunordered(__x, __y);
+}
 
 // using statements must come after the overloads.
 // working around MSVC6 PR# 27677
