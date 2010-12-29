@@ -33,6 +33,7 @@
 #include <algorithm>
 #include <functional>
 #include <numeric>
+#include <cstddef>
 
 #include <rw/_array.h>
 #include <rw/_defs.h>
