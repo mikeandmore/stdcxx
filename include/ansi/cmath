@@ -1042,11 +1042,11 @@ template <typename __T> int isnormal(__T __x) {
     return fpclassify(__x) == FP_NORMAL;
 }
 
-int signbit(float __x) {
+inline int signbit(float __x) {
     return __signbitf(__x);
 }
 
-int signbit(double __x) {
+inline int signbit(double __x) {
     return __signbit(__x);
 }
 
