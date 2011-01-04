@@ -31,6 +31,7 @@
 #define _RWSTD_NEW_INCLUDED
 
 
+#include <cstddef>
 #include <rw/_exception.h>
 #include <rw/_new.h>
 #include <rw/_defs.h>

@@ -30,6 +30,7 @@
 #ifndef _RWSTD_MEMORY_INCLUDED
 #define _RWSTD_MEMORY_INCLUDED
 
+#include <cstddef>
 #include <rw/_allocator.h>
 #include <rw/_autoptr.h>
 #include <rw/_iterbase.h>
