@@ -1186,6 +1186,13 @@ basic_string<_CharT, _Traits, _Allocator>::
 append (size_type __n, value_type __c)
 {
     const size_type __size0 = size ();
+
+    _RWSTD_REQUIRES (__size0 < npos - __n,
+                     (_RWSTD_ERROR_LENGTH_ERROR,
+                      _RWSTD_FUNC ("basic_string::assign (size_type, "
+                      "value_type)"), 
+                      __size0, npos - __n));
+
     const _RWSTD_SIZE_T __size1 = __size0 + __n;
 
     if (   capacity () < __size1

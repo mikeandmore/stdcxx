@@ -312,9 +312,6 @@ replace (size_type __pos1, size_type __n1, const_pointer __s, size_type __n2)
 {
     const size_type __size0 = size ();
 
-    if (npos == __n2)
-        __n2 = traits_type::length (__s);
-
     _RWSTD_REQUIRES (__pos1 <= __size0,
                      (_RWSTD_ERROR_OUT_OF_RANGE, 
                      _RWSTD_FUNC ("basic_string::replace (size_type, size_type"
@@ -404,6 +401,12 @@ replace (size_type __pos, size_type __len, size_type __count, value_type __val)
                       __pos, __size0));
 
     const size_type __xlen = _C_min (__size0 - __pos, __len);
+
+    _RWSTD_REQUIRES (__count <= max_size (),
+                     (_RWSTD_ERROR_LENGTH_ERROR,
+                      _RWSTD_FUNC ("basic_string::replace (size_type, "
+                                   "size_type, size_type, value_type)"),
+                      __count, max_size ()));
 
     _RWSTD_REQUIRES (__size0 - __xlen <= max_size () - __count,
                      (_RWSTD_ERROR_LENGTH_ERROR,
