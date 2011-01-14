@@ -1,55 +1,31 @@
 // configured for pathCC- on Linux 2.6.31-302-ec2
 #define _PSC_FULL_VERSION "${PSC_FULL_VERSION}"
 #define _RWSTD_NO_CASSERT
-#define _RWSTD_ANSI_C_ASSERT_H "/usr/include/assert.h"
 #define _RWSTD_NO_CCOMPLEX
-#define _RWSTD_ANSI_C_COMPLEX_H "/usr/include/complex.h"
 #define _RWSTD_NO_CCTYPE
-#define _RWSTD_ANSI_C_CTYPE_H "/usr/include/ctype.h"
 #define _RWSTD_NO_CERRNO
-#define _RWSTD_ANSI_C_ERRNO_H "/usr/include/errno.h"
 #define _RWSTD_NO_CFENV
-#define _RWSTD_ANSI_C_FENV_H "/usr/include/fenv.h"
 #define _RWSTD_NO_CFLOAT
-#define _RWSTD_ANSI_C_FLOAT_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/" _PSC_FULL_VERSION "/include/float.h"
 #define _RWSTD_NO_CINTTYPES
-#define _RWSTD_ANSI_C_INTTYPES_H "/usr/include/inttypes.h"
 #define _RWSTD_NO_CISO646
-#define _RWSTD_ANSI_C_ISO646_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/" _PSC_FULL_VERSION "/include/iso646.h"
 #define _RWSTD_NO_CLIMITS
-#define _RWSTD_ANSI_C_LIMITS_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/" _PSC_FULL_VERSION "/include/limits.h"
 #define _RWSTD_NO_CLOCALE
-#define _RWSTD_ANSI_C_LOCALE_H "/usr/include/locale.h"
 #define _RWSTD_NO_CMATH
-#define _RWSTD_ANSI_C_MATH_H "/usr/include/math.h"
 #define _RWSTD_NO_CSETJMP
-#define _RWSTD_ANSI_C_SETJMP_H "/usr/include/setjmp.h"
 #define _RWSTD_NO_CSIGNAL
-#define _RWSTD_ANSI_C_SIGNAL_H "/usr/include/signal.h"
 #define _RWSTD_NO_CSTDARG
-#define _RWSTD_ANSI_C_STDARG_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/" _PSC_FULL_VERSION "/include/stdarg.h"
 #define _RWSTD_NO_CSTDBOOL
-#define _RWSTD_ANSI_C_STDBOOL_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/" _PSC_FULL_VERSION "/include/stdbool.h"
 #define _RWSTD_NO_CSTDDEF
-#define _RWSTD_ANSI_C_STDDEF_H "/mnt/esil/build/enzo-suite/Xcompiler/lib/" _PSC_FULL_VERSION "/include/stddef.h"
 #define _RWSTD_NO_CSTDIO
-#define _RWSTD_ANSI_C_STDIO_H "/usr/include/stdio.h"
 #define _RWSTD_NO_CSTDINT
-#define _RWSTD_ANSI_C_STDINT_H "/usr/include/stdint.h"
 #define _RWSTD_NO_CSTDLIB
-#define _RWSTD_ANSI_C_STDLIB_H "/usr/include/stdlib.h"
 #define _RWSTD_NO_CSTRING
-#define _RWSTD_ANSI_C_STRING_H "/usr/include/string.h"
 #define _RWSTD_NO_CTGMATH
-#define _RWSTD_ANSI_C_TGMATH_H "/usr/include/tgmath.h"
 #define _RWSTD_NO_CTIME
-#define _RWSTD_ANSI_C_TIME_H "/usr/include/time.h"
 #define _RWSTD_NO_CUCHAR
 #define _RWSTD_NO_UCHAR_H
 #define _RWSTD_NO_CWCHAR
-#define _RWSTD_ANSI_C_WCHAR_H "/usr/include/wchar.h"
 #define _RWSTD_NO_CWCTYPE
-#define _RWSTD_ANSI_C_WCTYPE_H "/usr/include/wctype.h"
 #define _RWSTD_NO_NEW
 #define _RWSTD_NO_NEW_H
 #define _RWSTD_NO_TYPEINFO
