@@ -560,7 +560,65 @@ extern "C" long double tanhl (long double);
 #  define _TANHL(x)    ::tanh (double (x))
 #endif   // _RWSTD_NO_TANHL
 
+#ifndef _RWSTD_NO_POWIF
+#  define _POWIF(x, y) ::__builtin_powif (x, y)
+#else
 
+inline float __rw_powif (float __x, int __y)
+{
+    float __res = __y % 2 ? __x : 1;
+
+    for (int __i = __y < 0 ? -__y : __y; __i >>= 1; ) {
+        __x *= __x;
+        if (__i % 2)
+            __res *= __x;
+    }
+
+    return __y < 0 ? __res ? 1 / __res : -1 / __res : __y ? __res : 1;
+}
+
+#  define _POWIF(x, y) ::__rw_powif (x, y)
+#endif   // _RWSTD_NO_POWIF
+
+#ifndef _RWSTD_NO_POWI
+#  define _POWI(x, y)  ::__builtin_powi (x, y)
+#else
+
+inline double __rw_powi (double __x, int __y)
+{
+    double __res = __y % 2 ? __x : 1;
+
+    for (int __i = __y < 0 ? -__y : __y; __i >>= 1; ) {
+        __x *= __x;
+        if (__i % 2)
+            __res *= __x;
+    }
+
+    return __y < 0 ? __res ? 1 / __res : -1 / __res : __y ? __res : 1;
+}
+
+#  define _POWI(x, y) ::__rw_powi (x, y)
+#endif   // _RWSTD_NO_POWI
+
+#ifndef _RWSTD_NO_POWIL
+#  define _POWIL(x, y) ::__builtin_powil (x, y)
+#else
+
+inline long double __rw_powil (long double __x, int __y)
+{
+    long double __res = __y % 2 ? __x : 1;
+
+    for (int __i = __y < 0 ? -__y : __y; __i >>= 1; ) {
+        __x *= __x;
+        if (__i % 2)
+            __res *= __x;
+    }
+
+    return __y < 0 ? __res ? 1 / __res : -1 / __res : __y ? __res : 1;
+}
+
+#  define _POWIL(x, y) ::__rw_powil (x, y)
+#endif   // _RWSTD_NO_POWIL
 
 #if !defined (_RWSTD_NO_USING_LIBC_IN_STD)
 _RWSTD_NAMESPACE (std) { 
@@ -714,7 +772,7 @@ inline float pow (float __x, float __y)
 #ifdef _RWSTD_NO_POW_FLT_INT
 inline float pow (float __x, int __y)
 {
-    return ::__builtin_powif(__x, __y);
+    return _POWIF (__x, __y);
 }
 #endif   // _RWSTD_NO_POW_FLT_INT
 
@@ -784,7 +842,7 @@ extern "C" double pow (double, double);
 
 inline double pow (double __x, int __y)
 {
-    return ::__builtin_powi(__x, __y); 
+    return _POWI (__x, __y);
 }
 
 #endif   // _RWSTD_NO_POW_DBL_INT
@@ -946,7 +1004,7 @@ inline long double pow (long double __x, long double __y)
 #ifdef _RWSTD_NO_POW_LDBL_INT
 inline long double pow (long double __x, int __y)
 {
-    return ::__builtin_powil(__x, __y);
+    return _POWIL (__x, __y);
 }
 #endif   // _RWSTD_NO_POW_LDBL_INT
 
