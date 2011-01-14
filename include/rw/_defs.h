@@ -243,6 +243,8 @@
 #  define _RWSTD_ANSI_C_STRING_H <../include/string.h>
 #  undef _RWSTD_ANSI_C_TIME_H
 #  define _RWSTD_ANSI_C_TIME_H <../include/time.h>
+#  undef _RWSTD_ANSI_C_STDINT_H
+#  define _RWSTD_ANSI_C_STDINT_H <../include/stdint.h>
 
 #  undef _RWSTD_ANSI_C_WCHAR_H
 #  ifndef _RWSTD_NO_WCHAR_H
