@@ -714,15 +714,7 @@ inline float pow (float __x, float __y)
 #ifdef _RWSTD_NO_POW_FLT_INT
 inline float pow (float __x, int __y)
 {
-    float __res = __y % 2 ? __x : 1;
-
-    for (int __i = __y < 0 ? -__y : __y; __i >>= 1; ) {
-        __x *= __x;
-        if (__i % 2)
-            __res *= __x;
-    }
-
-    return __y < 0 ? __res ? 1 / __res : -1 / __res : __y ? __res : 1;
+    return ::__builtin_powif(__x, __y);
 }
 #endif   // _RWSTD_NO_POW_FLT_INT
 
@@ -792,15 +784,7 @@ extern "C" double pow (double, double);
 
 inline double pow (double __x, int __y)
 {
-    double __res = __y % 2 ? __x : 1;
-
-    for (int __i = __y < 0 ? -__y : __y; __i >>= 1; ) {
-        __x *= __x;
-        if (__i % 2)
-            __res *= __x;
-    }
-
-    return __y < 0 ? __res ? 1 / __res : -1 / __res : __y ? __res : 1;
+    return ::__builtin_powi(__x, __y); 
 }
 
 #endif   // _RWSTD_NO_POW_DBL_INT
@@ -962,15 +946,7 @@ inline long double pow (long double __x, long double __y)
 #ifdef _RWSTD_NO_POW_LDBL_INT
 inline long double pow (long double __x, int __y)
 {
-    long double __res = __y % 2 ? __x : 1;
-
-    for (int __i = __y < 0 ? -__y : __y; __i >>= 1; ) {
-        __x *= __x;
-        if (__i % 2)
-            __res *= __x;
-    }
-
-    return __y < 0 ? __res ? 1 / __res : -1 / __res : __y ? __res : 1;
+    return ::__builtin_powil(__x, __y);
 }
 #endif   // _RWSTD_NO_POW_LDBL_INT
 
