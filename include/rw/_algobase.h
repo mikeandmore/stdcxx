@@ -49,7 +49,7 @@
 
 #include <rw/_pair.h>       // for pair
 #include <rw/_iterbase.h>   // for iterator_traits, __rw_debug_iter
-
+#include <rw/_meta_other.h> // for _RWSTD_ENABLE_IF(C,T)
 
 _RWSTD_NAMESPACE (std) { 
 
@@ -111,18 +111,37 @@ copy_backward (_BidirIter1 __first, _BidirIter1 __last, _BidirIter2 __res)
 
 
 // 25.2.5
+
+// fill by Bryce Lelbach
+
 template <class _FwdIter, class _TypeT>
-inline void fill (_FwdIter __first, _FwdIter __last, const _TypeT &__val)
+inline typename
+_RWSTD_DISABLE_IF(_RWSTD_IS_SCALAR(_TypeT), void)
+fill (_FwdIter __first, _FwdIter __last, const _TypeT &__val)
 {
     _RWSTD_ASSERT_RANGE (__first, __last);
 
-    for ( ; !(__first == __last); ++__first)
+    for (; !(__first == __last); ++__first)
         *__first = __val;
 }
 
+template <class _FwdIter, class _TypeT>
+inline typename
+_RWSTD_ENABLE_IF(_RWSTD_IS_SCALAR(_TypeT), void)
+fill (_FwdIter __first, _FwdIter __last, const _TypeT &__val)
+{
+    _RWSTD_ASSERT_RANGE (__first, __last);
+
+    for (_TypeT const __tmp = __val; !(__first == __last); ++__first)
+        *__first = __tmp;
+}
+
+// fill_n by Bryce Lelbach
 
 template <class _OutputIter, class _Size, class _TypeT>
-inline void fill_n (_OutputIter __first, _Size __n, const _TypeT &__val)
+inline typename
+_RWSTD_DISABLE_IF(_RWSTD_IS_SCALAR(_TypeT), _OutputIter)
+fill_n (_OutputIter __first, _Size __n, const _TypeT &__val)
 {
     // Size must be convertible to integral type but need not itself be one
     // Complexity:
@@ -130,6 +149,18 @@ inline void fill_n (_OutputIter __first, _Size __n, const _TypeT &__val)
     // (see lwg issue 426 for the complexity when n is not positive)
     for (_RWSTD_PTRDIFF_T __inx = __n; 0 < __inx; --__inx, ++__first)
         *__first = __val;
+    return __first;
+}
+
+template <class _OutputIter, class _Size, class _TypeT>
+inline typename
+_RWSTD_ENABLE_IF(_RWSTD_IS_SCALAR(_TypeT), _OutputIter)
+fill_n (_OutputIter __first, _Size __n, const _TypeT &__val)
+{
+    _TypeT const __tmp = __val;
+    for (_RWSTD_PTRDIFF_T __inx = __n; 0 < __inx; --__inx, ++__first)
+        *__first = __tmp;
+    return __first;
 }
 
 
