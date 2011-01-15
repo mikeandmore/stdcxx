@@ -42,6 +42,7 @@
 #include <rw/_select.h>
 #include <rw/_strref.h>
 #include <rw/_defs.h>
+#include <cctype>
 
 
 _RWSTD_NAMESPACE (std) { 
