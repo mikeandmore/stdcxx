@@ -38,5 +38,6 @@
 #include <rw/_streamiter.h>   // for stream iterators
 
 #include <rw/_defs.h>
+#include <cstddef>
 
 #endif   // _RWSTD_ITERATOR_INCLUDED
