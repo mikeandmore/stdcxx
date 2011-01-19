@@ -35,6 +35,7 @@
 
 #ifndef _RWSTD_STRICT_HEADERS
 #include <cctype>
+#include <ios>
 #endif // _RWSTD_STRICT_HEADERS
 
 #include <rw/_defs.h>
