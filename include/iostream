@@ -32,7 +32,10 @@
 
 #include <istream>
 #include <ostream>
+
+#ifndef _RWSTD_STRICT_HEADERS
 #include <cctype>
+#endif // _RWSTD_STRICT_HEADERS
 
 #include <rw/_defs.h>
 

@@ -42,7 +42,10 @@
 #include <rw/_select.h>
 #include <rw/_strref.h>
 #include <rw/_defs.h>
+
+#ifndef _RWSTD_STRICT_HEADERS
 #include <cctype>
+#endif // _RWSTD_STRICT_HEADERS
 
 
 _RWSTD_NAMESPACE (std) { 
