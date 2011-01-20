@@ -268,7 +268,7 @@ protected:
 
 
 #if _RWSTD_DEFINE_TEMPLATE (_COLLATE)
-#  include <loc/_collate.cc>
+#  include <loc/_collate.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE (_COLLATE)
 
 

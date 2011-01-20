@@ -815,7 +815,7 @@ list<_TypeT, _Allocator>::swap (list &__x)
 
 
 #ifdef _RWSTD_NO_IMPLICIT_INCLUSION
-#  include <list.cc>
+#  include <list.ipp>
 #endif
 
 

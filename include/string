@@ -1560,7 +1560,7 @@ __rw_new_capacity (_RWSTD_STRING_SIZE_TYPE (_STD::wstring) __size,
 
 
 #if _RWSTD_DEFINE_TEMPLATE_FIRST (_BASIC_STRING)
-#  include <string.cc>
+#  include <string.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (_BASIC_STRING)
 
 
@@ -1597,7 +1597,7 @@ _RWSTD_INSTANTIATE_3 (class _RWSTD_TI_EXPORT
 
 
 #if _RWSTD_DEFINE_TEMPLATE_LAST (_BASIC_STRING)
-#  include <string.cc>
+#  include <string.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_LAST (_BASIC_STRING)
 
 

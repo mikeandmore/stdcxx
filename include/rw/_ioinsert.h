@@ -95,7 +95,7 @@ __rw_insert (_STD::basic_ostream<_CharT, _Traits>&, const _StringT*,
 
 
 #if _RWSTD_DEFINE_TEMPLATE_FIRST (_INSERTER)
-#  include <rw/_ioinsert.cc>
+#  include <rw/_ioinsert.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (_INSERTER)
 
 
@@ -230,7 +230,7 @@ _RWSTD_INSTANTIATE_FUN_1 (_RWSTD_TI_EXPORT _STD::wostream&
 
 
 #if _RWSTD_DEFINE_TEMPLATE_LAST (_INSERTER)
-#  include <rw/_ioinsert.cc>
+#  include <rw/_ioinsert.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_LAST (_INSERTER)
 
 

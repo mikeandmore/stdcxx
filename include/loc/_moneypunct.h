@@ -222,7 +222,7 @@ public:
 
 
 #if _RWSTD_DEFINE_TEMPLATE_FIRST (_MONEYPUNCT)
-#  include <loc/_moneypunct.cc>
+#  include <loc/_moneypunct.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (_MONEYPUNCT)
 
 
@@ -257,7 +257,7 @@ _RWSTD_INSTANTIATE_2 (struct _RWSTD_TI_EXPORT moneypunct<wchar_t, false>);
 
 
 #if _RWSTD_DEFINE_TEMPLATE_LAST (_MONEYPUNCT)
-#  include <loc/_moneypunct.cc>
+#  include <loc/_moneypunct.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_LAST (_MONEYPUNCT)
 
 

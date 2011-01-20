@@ -1249,7 +1249,7 @@ inline bool prev_permutation (_BidirIter __first, _BidirIter __last)
 
 
 #ifdef _RWSTD_NO_IMPLICIT_INCLUSION
-#  include <algorithm.cc>
+#  include <algorithm.ipp>
 #endif
 
 

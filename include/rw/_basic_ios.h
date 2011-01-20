@@ -336,7 +336,7 @@ basic_ios<_CharT, _Traits>::_C_bufmutex () const
 
 
 #if _RWSTD_DEFINE_TEMPLATE_FIRST (_BASIC_IOS)
-#  include <rw/_basic_ios.cc>
+#  include <rw/_basic_ios.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (_BASIC_IOS)
 
 
@@ -371,7 +371,7 @@ _RWSTD_INSTANTIATE_2 (class _RWSTD_TI_EXPORT
 
 
 #if _RWSTD_DEFINE_TEMPLATE_LAST (_BASIC_IOS)
-#  include <rw/_basic_ios.cc>
+#  include <rw/_basic_ios.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_LAST (_BASIC_IOS)
 
 

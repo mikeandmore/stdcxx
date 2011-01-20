@@ -902,7 +902,7 @@ swap (deque<_TypeT, _Allocator> &__lhs, deque<_TypeT, _Allocator> &__rhs)
 
 
 #ifdef _RWSTD_NO_IMPLICIT_INCLUSION
-#  include <deque.cc>
+#  include <deque.ipp>
 #endif
 
 

@@ -349,7 +349,7 @@ __rw_check_overflow_int (long __lval, _RWSTD_FMTFLAGS __flags,
 
 
 #if _RWSTD_DEFINE_TEMPLATE_FIRST (_NUM_GET)
-#  include <loc/_num_get.cc>
+#  include <loc/_num_get.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (_NUM_GET)
 
 
@@ -382,7 +382,7 @@ _RWSTD_INSTANTIATE_1 (struct _RWSTD_TI_EXPORT num_get<wchar_t>);
 
 
 #if _RWSTD_DEFINE_TEMPLATE_LAST (_NUM_GET)
-#  include <loc/_num_get.cc>
+#  include <loc/_num_get.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_LAST (_NUM_GET)
 
 

@@ -116,7 +116,7 @@ public:
 
 
 #if _RWSTD_DEFINE_TEMPLATE_FIRST (_TIME_PUT)
-#  include <loc/_time_put.cc>
+#  include <loc/_time_put.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (_TIME_PUT)
 
 
@@ -149,7 +149,7 @@ _RWSTD_INSTANTIATE_1 (struct _RWSTD_TI_EXPORT time_put<wchar_t>);
 
 
 #if _RWSTD_DEFINE_TEMPLATE_LAST (_TIME_PUT)
-#  include <loc/_time_put.cc>
+#  include <loc/_time_put.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_LAST (_TIME_PUT)
 
 

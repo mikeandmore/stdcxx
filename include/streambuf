@@ -527,7 +527,7 @@ _C_is_valid () const
 
 
 #if _RWSTD_DEFINE_TEMPLATE_FIRST (_BASIC_STREAMBUF)
-#  include <streambuf.cc>
+#  include <streambuf.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (_BASIC_STREAMBUF)
 
 
@@ -560,7 +560,7 @@ _RWSTD_INSTANTIATE_1 (class _RWSTD_TI_EXPORT basic_streambuf<wchar_t>);
 
 
 #if _RWSTD_DEFINE_TEMPLATE_LAST (_BASIC_STREAMBUF)
-#  include <streambuf.cc>
+#  include <streambuf.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_LAST (_BASIC_STREAMBUF)
 
 

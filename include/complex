@@ -847,7 +847,7 @@ operator<< (basic_ostream<_CharT, _Traits>&, const complex<_TypeT>&);
 
 
 #if _RWSTD_DEFINE_TEMPLATE (_COMPLEX)
-#  include <complex.cc>
+#  include <complex.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE (_BASIC_OSTREAM)
 
 

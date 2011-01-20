@@ -246,7 +246,7 @@ public:
 
 
 #if _RWSTD_DEFINE_TEMPLATE_FIRST (_NUMPUNCT)
-#  include <loc/_numpunct.cc>
+#  include <loc/_numpunct.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (_NUMPUNCT)
 
 
@@ -279,7 +279,7 @@ _RWSTD_INSTANTIATE_1 (struct _RWSTD_TI_EXPORT numpunct<wchar_t>);
 
 
 #if _RWSTD_DEFINE_TEMPLATE_LAST (_NUMPUNCT)
-#  include <loc/_numpunct.cc>
+#  include <loc/_numpunct.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_LAST (_NUMPUNCT)
 
 

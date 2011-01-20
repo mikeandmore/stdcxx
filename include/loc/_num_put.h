@@ -210,7 +210,7 @@ _RW::__rw_facet_id num_put<wchar_t, ostreambuf_iterator<wchar_t> >::id;
 
 
 #if _RWSTD_DEFINE_TEMPLATE_FIRST (_NUM_PUT)
-#  include <loc/_num_put.cc>
+#  include <loc/_num_put.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (_NUM_PUT)
 
 
@@ -243,7 +243,7 @@ _RWSTD_INSTANTIATE_1 (struct _RWSTD_TI_EXPORT num_put<wchar_t>);
 
 
 #if _RWSTD_DEFINE_TEMPLATE_LAST (_NUM_PUT)
-#  include <loc/_num_put.cc>
+#  include <loc/_num_put.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_LAST (_NUM_PUT)
 
 

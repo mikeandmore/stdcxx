@@ -711,7 +711,7 @@ inline wostream& operator<< (wostream &__strm, const bitset<_Size>& __x)
 
 
 #ifdef _RWSTD_NO_IMPLICIT_INCLUSION
-#  include <bitset.cc>
+#  include <bitset.ipp>
 #endif
 
 

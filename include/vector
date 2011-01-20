@@ -1336,7 +1336,7 @@ public:
 
 
 #if defined (_RWSTD_NO_IMPLICIT_INCLUSION)
-#  include <vector.cc>
+#  include <vector.ipp>
 #endif
 
 

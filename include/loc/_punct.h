@@ -126,7 +126,7 @@ _InputIter __rw_match_name (_InputIter, _InputIter,
 
 
 #if _RWSTD_DEFINE_TEMPLATE_FIRST (_PUNCT)
-#  include <loc/_punct.cc>
+#  include <loc/_punct.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (_PUNCT)
 
 
@@ -168,7 +168,7 @@ _RWSTD_INSTANTIATE_FUN_1 (_RWSTD_TI_EXPORT _RW::__rw_wistreambuf_iterator
 
 
 #if _RWSTD_DEFINE_TEMPLATE_LAST (_PUNCT)
-#  include <loc/_punct.cc>
+#  include <loc/_punct.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_LAST (_PUNCT)
 
 

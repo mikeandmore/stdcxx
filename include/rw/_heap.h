@@ -187,7 +187,7 @@ inline void sort_heap (_RandomAccessIter __first, _RandomAccessIter __last)
 
 
 #ifdef _RWSTD_NO_IMPLICIT_INCLUSION
-#  include <rw/_heap.cc>
+#  include <rw/_heap.ipp>
 #endif
 
 

@@ -436,7 +436,7 @@ private:
 
 
 #if _RWSTD_DEFINE_TEMPLATE_FIRST (_BASIC_STRINGBUF)
-#  include <sstream.cc>
+#  include <sstream.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (_BASIC_STRINGBUF)
 
 
@@ -469,7 +469,7 @@ _RWSTD_INSTANTIATE_1 (class _RWSTD_TI_EXPORT basic_stringbuf<wchar_t>);
 
 
 #if _RWSTD_DEFINE_TEMPLATE_LAST (_BASIC_STRINGBUF)
-#  include <sstream.cc>
+#  include <sstream.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_LAST (_BASIC_STRINGBUF)
 
 

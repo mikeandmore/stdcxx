@@ -145,7 +145,7 @@ public:
 
 
 #if _RWSTD_DEFINE_TEMPLATE_FIRST (_MESSAGES)
-#  include <loc/_messages.cc>
+#  include <loc/_messages.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (MESSAGES)
 
 
@@ -178,7 +178,7 @@ _RWSTD_INSTANTIATE_1 (class _RWSTD_TI_EXPORT messages<wchar_t>);
 
 
 #if _RWSTD_DEFINE_TEMPLATE_LAST (_MESSAGES)
-#  include <loc/_messages.cc>
+#  include <loc/_messages.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_LAST (MESSAGES)
 
 

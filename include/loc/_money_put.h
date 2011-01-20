@@ -114,7 +114,7 @@ _RW::__rw_facet_id money_put<wchar_t, ostreambuf_iterator<wchar_t> >::id;
 
 
 #if _RWSTD_DEFINE_TEMPLATE_FIRST (_MONEY_PUT)
-#  include <loc/_money_put.cc>
+#  include <loc/_money_put.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (_MONEY_PUT)
 
 
@@ -147,7 +147,7 @@ _RWSTD_INSTANTIATE_1 (struct _RWSTD_TI_EXPORT money_put<wchar_t>);
 
 
 #if _RWSTD_DEFINE_TEMPLATE_LAST (_MONEY_PUT)
-#  include <loc/_money_put.cc>
+#  include <loc/_money_put.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_LAST (_MONEY_PUT)
 
 

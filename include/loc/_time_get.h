@@ -217,7 +217,7 @@ public:
 
 
 #if _RWSTD_DEFINE_TEMPLATE_FIRST (_TIME_GET)
-#  include <loc/_time_get.cc>
+#  include <loc/_time_get.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (_TIME_GET)
 
 
@@ -250,7 +250,7 @@ _RWSTD_INSTANTIATE_1 (class _RWSTD_TI_EXPORT time_get<wchar_t>);
 
 
 #if _RWSTD_DEFINE_TEMPLATE_LAST (_TIME_GET)
-#  include <loc/_time_get.cc>
+#  include <loc/_time_get.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_LAST (_TIME_GET)
 
 

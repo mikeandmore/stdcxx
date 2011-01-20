@@ -2517,7 +2517,7 @@ valarray<_TypeT>::operator[] (const valarray<_RWSTD_SIZE_T> &__x)
 
 
 #ifdef _RWSTD_NO_IMPLICIT_INCLUSION
-#  include <valarray.cc>
+#  include <valarray.ipp>
 #endif
 
 

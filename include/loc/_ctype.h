@@ -652,7 +652,7 @@ private:
 
 
 #if _RWSTD_DEFINE_TEMPLATE (CTYPE)
-#  include <loc/_ctype.cc>
+#  include <loc/_ctype.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE (CTYPE)
 
 

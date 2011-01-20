@@ -663,7 +663,7 @@ private:
 
 
 #if _RWSTD_DEFINE_TEMPLATE_FIRST (_BASIC_FILEBUF)
-#  include <fstream.cc>
+#  include <fstream.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (_BASIC_FILEBUF)
 
 
@@ -699,7 +699,7 @@ _RWSTD_INSTANTIATE_2 (class _RWSTD_TI_EXPORT
 
 
 #if _RWSTD_DEFINE_TEMPLATE_LAST (_BASIC_FILEBUF)
-#  include <fstream.cc>
+#  include <fstream.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_LAST (_BASIC_FILEBUF)
 
 

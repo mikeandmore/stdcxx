@@ -473,7 +473,7 @@ protected:
 
 
 #if _RWSTD_DEFINE_TEMPLATE (_CODECVT)
-#  include <loc/_codecvt.cc>
+#  include <loc/_codecvt.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE (_CODECVT)
 
 

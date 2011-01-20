@@ -113,7 +113,7 @@ getline (basic_istream<_CharT, _Traits>&            __is,
 
 
 #  if _RWSTD_DEFINE_TEMPLATE_FIRST (_BASIC_ISTREAM)
-#    include <rw/_stringio.cc>
+#    include <rw/_stringio.ipp>
 #  endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (_BASIC_ISTREAM)
 
 
@@ -153,7 +153,7 @@ _RWSTD_INSTANTIATE_FUN_1 (_RWSTD_TI_EXPORT wistream&
 
 
 #  if _RWSTD_DEFINE_TEMPLATE_LAST (_BASIC_ISTREAM)
-#    include <rw/_stringio.cc>
+#    include <rw/_stringio.ipp>
 #  endif   // _RWSTD_DEFINE_TEMPLATE_LAST (_BASIC_ISTREAM)
 
 

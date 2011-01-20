@@ -345,7 +345,7 @@ basic_ostream<_CharT, _Traits>::_C_pad (streamsize __len)
 
 
 #if _RWSTD_DEFINE_TEMPLATE_FIRST (_BASIC_OSTREAM)
-#  include <ostream.cc>
+#  include <ostream.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_FIRST (_BASIC_OSTREAM)
 
 
@@ -586,7 +586,7 @@ _RWSTD_INSTANTIATE_2 (class _RWSTD_TI_EXPORT
 
 
 #if _RWSTD_DEFINE_TEMPLATE_LAST (_BASIC_OSTREAM)
-#  include <ostream.cc>
+#  include <ostream.ipp>
 #endif   // _RWSTD_DEFINE_TEMPLATE_LAST (_BASIC_OSTREAM)
 
 

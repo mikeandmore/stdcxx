@@ -848,7 +848,7 @@ equal_range (const _Key& __k)
 
 
 #ifdef _RWSTD_NO_IMPLICIT_INCLUSION
-#  include <rw/_tree.cc>
+#  include <rw/_tree.ipp>
 #endif
 
 #endif   // _RWSTD_RW_TREE_H_INCLUDED

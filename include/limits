@@ -553,7 +553,7 @@ struct numeric_limits<const volatile _TypeT>: numeric_limits<_TypeT> { };
 
 
 #ifdef _RWSTD_NO_IMPLICIT_INCLUSION
-#  include <limits.cc>
+#  include <limits.ipp>
 #endif
 
 #endif   // _RWSTD_LIMITS_INCLUDED

@@ -305,7 +305,7 @@ bool lexicographical_compare(_InputIter1 __first1, _InputIter1 __last1,
 
 
 #ifdef _RWSTD_NO_IMPLICIT_INCLUSION
-#  include <rw/_algobase.cc>
+#  include <rw/_algobase.ipp>
 #endif   // _RWSTD_NO_IMPLICIT_INCLUSION
 
 
