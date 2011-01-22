@@ -1051,17 +1051,8 @@ inline long double tanh (long double __x)
 
 #endif   // _RWSTD_NO_LONG_DOUBLE
 
-
-inline int fpclassify(double __x) {
-    return __fpclassify(__x);
-}
-
-inline int fpclassify(float __x) {
-    return __fpclassifyf(__x);
-}
-
 template <typename __T> int isfinite(__T __x) {
-    return __builtin_isfinite(__x);
+    return !isnan(__x) && !isinf(__x);
 }
 
 template <typename __T> int isinf(__T __x) {
@@ -1072,16 +1063,37 @@ template <typename __T> int isnan(__T __x) {
     return __builtin_isnan(__x);
 }
 
-template <typename __T> int isnormal(__T __x) {
-    return fpclassify(__x) == FP_NORMAL;
+inline int isnormal(float __x) {
+    return isfinite(__x) && fabs(__x) >= _RWSTD_FLT_MIN;
 }
 
+inline int isnormal(double __x) {
+    return isfinite(__x) && ::fabs(__x) >= _RWSTD_DBL_MIN;
+}
+
+#define __SIGNBIT(x) (((unsigned char*)&(x))[sizeof(x) - 1] >> (_RWSTD_CHAR_BIT - 1))
+
 inline int signbit(float __x) {
-    return __signbitf(__x);
+    return __SIGNBIT(__x);
 }
 
 inline int signbit(double __x) {
-    return __signbit(__x);
+    return __SIGNBIT(__x);
+}
+
+#define _FPCLASSIFY(__x) \
+    isnan(__x) ? FP_NAN : \
+    isinf(__x) ? FP_INFINITE : \
+    isnormal(__x) ? FP_NORMAL : \
+    __x == (__typeof(__x)) 0 ? FP_ZERO : \
+    FP_SUBNORMAL
+
+inline int fpclassify(double __x) {
+    return _FPCLASSIFY(__x);
+}
+
+inline int fpclassify(float __x) {
+    return _FPCLASSIFY(__x);
 }
 
 template <typename __T> int isgreater(__T __x, __T __y) {
