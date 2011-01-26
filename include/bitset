@@ -297,6 +297,18 @@ public:
         _C_from_ulong (__n);
     }
 
+    bitset (float __n) _THROWS (()) {
+        _C_from_ulong (__n);
+    }
+    
+    bitset (double __n) _THROWS (()) {
+        _C_from_ulong (__n);
+    }
+    
+    bitset (long double __n) _THROWS (()) {
+        _C_from_ulong (__n);
+    }
+
 #endif   // _RWSTD_NO_EXT_BITSET_CTOR_CHAR_ARRAY
 
     // 23.3.5.2, p1
