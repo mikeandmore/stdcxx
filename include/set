@@ -49,6 +49,10 @@
 #include <rw/_tree.h>       // for __rb_tree
 #include <rw/_defs.h>
 
+#ifndef _RWSTD_STRICT_HEADERS
+#include <functional>
+#endif // !_RWSTD_STRICT_HEADERS
+
 
 _RWSTD_NAMESPACE (__rw) { 
 
