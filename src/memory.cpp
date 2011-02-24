@@ -344,6 +344,8 @@ what () const _THROWS (())
 #  endif   // !_RWSTD_NO_STD_BAD_ALLOC || !_RWSTD_NO_RUNTIME_IN_STD ...
 #endif   // _RWSTD_NEW_INCLUDED
 
+/* FIXME : Revert commit fc297ebba934fd7d527a61dc93fdd05bea268162 when psclang++
+ * is self hosting */
 namespace std {
     void __uninitialized_copy_workaround() {
     }
