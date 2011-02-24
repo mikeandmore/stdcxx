@@ -343,3 +343,9 @@ what () const _THROWS (())
 
 #  endif   // !_RWSTD_NO_STD_BAD_ALLOC || !_RWSTD_NO_RUNTIME_IN_STD ...
 #endif   // _RWSTD_NEW_INCLUDED
+
+namespace std {
+    void __uninitialized_copy_workaround() {
+    }
+}
+

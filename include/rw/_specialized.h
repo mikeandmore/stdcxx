@@ -160,6 +160,9 @@ template <class _TypeT>
 class allocator;
 
 
+void __uninitialized_copy_workaround();
+
+
 // 20.4.4.1
 template <class _InputIterator, class _ForwardIterator>
 inline _ForwardIterator
@@ -176,6 +179,7 @@ uninitialized_copy (_InputIterator __first, _InputIterator __last,
                 _RWSTD_STATIC_CAST (volatile void*, &*__res);
             ::new (_RWSTD_CONST_CAST (void*, __ptr)) _TypeT (*__first);
         }
+        __uninitialized_copy_workaround();
     }
     _CATCH (...) {
         _RW::__rw_destroy (__start, __res);
