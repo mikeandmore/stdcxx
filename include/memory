@@ -31,6 +31,11 @@
 #define _RWSTD_MEMORY_INCLUDED
 
 #include <cstddef>
+
+#ifndef _RWSTD_STRICT_HEADERS
+#include <new>
+#endif // !_RWSTD_STRICT_HEADERS
+
 #include <rw/_allocator.h>
 #include <rw/_autoptr.h>
 #include <rw/_iterbase.h>
