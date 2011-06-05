@@ -663,7 +663,7 @@
 #define _RWSTD_MBSTATE_T_SIZE 32
 // #define _RWSTD_NO_MMAP
 // #define _RWSTD_NO_MUNMAP
-#define _RWSTD_MUNMAP_ARG1_T void*
+#define _RWSTD_MUNMAP_ARG1_T char*
 // #define _RWSTD_NO_NESTED_CLASS_ACCESS
 // #define _RWSTD_NO_NEWLINE
 #define _RWSTD_NEWLINE "\n"
