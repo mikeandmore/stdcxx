@@ -39,6 +39,7 @@
  * 
  **************************************************************************/
 
+#include <rw/_funcbase.h> // for less
 
 _RWSTD_NAMESPACE (std) { 
 
@@ -376,25 +377,7 @@ void list<_TypeT, _Allocator>::unique ()
 template <class _TypeT, class _Allocator>
 void list<_TypeT, _Allocator>::merge (list<_TypeT, _Allocator>& __x)
 {
-    if (&__x == this)
-        return;
-    iterator __first1 = begin ();
-    iterator __last1  = end ();
-    iterator __first2 = __x.begin ();
-    iterator __last2  = __x.end ();
-
-    while (!(__first1 == __last1) && !(__first2 == __last2)) {
-      if (*__first2 < *__first1) {
-          iterator __next = __first2;
-          _C_transfer (__first1, __first2, ++__next, __x);
-          __first2 = __next;
-      }
-      else
-        ++__first1;
-    }
-
-    if (!(__first2 == __last2))
-        _C_transfer (__last1, __first2, __last2, __x);
+    merge(less<_TypeT>());
 }
 
 
@@ -412,72 +395,62 @@ void list<_TypeT, _Allocator>::reverse ()
 
 // sorts list by moving nodes within list; preserves iterators pointing to
 // elements of the list.
+
 template <class _TypeT, class _Allocator>
 void list<_TypeT, _Allocator>::sort ()
 {
-    for (size_type __n = 1; __n < size (); __n *= 2) {
+    sort(less<_TypeT>());
+}
+
+template <class _TypeT, class _Allocator>
+template <class _Compare>
+void list<_TypeT, _Allocator>::sort (_Compare compare)
+{
+    if (size() <= 1) {
+        return;
+    }
+
+    for (size_type __n = 1; __n < size (); __n <<= 1) {
         iterator __i1 = begin (),
-                 __i2 = begin (),
-                 __i3 = begin ();
+                 __i2 = begin ();
 
-        _C_advance (__i2, (difference_type)__n, end ());
-        _C_advance (__i3, (difference_type)(2 * __n), end ());
+        _C_advance (__i2, (difference_type) __n, end ());
 
-        for (size_type __m = 0;
-             __m < (size () + (2 * __n)) / (__n * 2); __m++) {
-
+        while (true) {
             if (!(__i1 == end ()) && !(__i2 == end ())) {
-                _C_adjacent_merge (__i1, __i2, __i3);
-                __i1 = __i2 = __i3;
+                __i1 = __i2 = _C_adjacent_merge (__i1, __i2, __n, compare);
                 _C_advance (__i2, (difference_type) __n, end ());
-                _C_advance (__i3, (difference_type) 2 * __n, end ());
+            } else {
+                break;
             }
         }
     }
 }
 
-
 template <class _TypeT, class _Allocator>
-void list<_TypeT, _Allocator>::
-_C_adjacent_merge (iterator __first1, iterator __last1, iterator __last2)
+template <class _Compare>
+typename list<_TypeT, _Allocator>::iterator list<_TypeT, _Allocator>::
+_C_adjacent_merge (iterator __first1, iterator __first2, size_type __distance, 
+                   _Compare compare)
 {
-    difference_type __n = _DISTANCE (__first1, __last1, difference_type);
-
-    for (iterator __first2 = __last1; __n >= 0 && !(__first2 == __last2); ) {
-        if (*__first2 < *__first1) {
+    size_type __count1 = 0, __count2 = 0;
+    while (true) {
+        if (__first2 == end() || __count2 == __distance) {
+            return __first2;
+        } else if (__count1 == __distance) {
+            ++__first2;
+            ++__count2;
+        } else if (*__first1 > *__first2) {
             iterator __next = __first2;
             _C_transfer (__first1, __first2, ++__next, *this);
             __first2 = __next;
-        }
-        else {
+            ++__count2;
+        } else {
             ++__first1;
-            --__n;
+            ++__count1;
         }
     }
 }
-
-
-template <class _TypeT, class _Allocator>
-template<class _Compare>
-void list<_TypeT, _Allocator>::
-_C_adjacent_merge (iterator __first1, iterator __last1, iterator __last2,
-                   _Compare __cmp)
-{
-    difference_type __n = _DISTANCE (__first1, __last1, difference_type);
-
-    for (iterator __first2 = __last1; __n >= 0 && !(__first2 == __last2); ) {
-        if (__cmp (*__first2, *__first1)) {
-            iterator __next = __first2;
-            _C_transfer (__first1, __first2, ++__next, *this);
-            __first2 = __next;
-        }
-        else {
-            ++__first1;
-            --__n;
-        }
-    }
-}
-
 
 template<class _TypeT, class _Allocator>
 template<class _Predicate>
@@ -542,34 +515,5 @@ merge (list<_TypeT, _Allocator>& __x, _Compare __cmp)
     if (!(__first2 == __last2))
         _C_transfer (__last1, __first2, __last2, __x);
 }
-
-
-template <class _TypeT, class _Allocator>
-template<class _Compare>
-void list<_TypeT, _Allocator>::sort (_Compare __cmp)
-{
-    for (size_type __n = 1; __n < size (); __n *= 2) {
-
-        iterator __it1 = begin (), 
-                 __it2 = begin (), 
-                 __it3 = begin ();
-
-        _C_advance (__it2, __n, end ());
-        _C_advance (__it3, 2 * __n, end ());
-
-        for (size_type __m = 0;
-             __m != (size () + (2 * __n)) / (__n * 2); ++__m) {
-            
-            if (!(__it1 == end ()) && !(__it2 == end ())) {
-                _C_adjacent_merge (__it1, __it2, __it3, __cmp);
-                __it1 = __it3;
-                __it2 = __it3;
-                _C_advance (__it2, __n, end ());
-                _C_advance (__it3, 2 * __n, end ());
-            }
-        }
-    }
-}
-
 
 }   // namespace std
