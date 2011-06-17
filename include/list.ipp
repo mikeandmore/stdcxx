@@ -440,7 +440,7 @@ _C_adjacent_merge (iterator __first1, iterator __first2, size_type __distance,
         } else if (__count1 == __distance) {
             ++__first2;
             ++__count2;
-        } else if (*__first1 > *__first2) {
+        } else if (compare(*__first2, *__first1)) {
             iterator __next = __first2;
             _C_transfer (__first1, __first2, ++__next, *this);
             __first2 = __next;
